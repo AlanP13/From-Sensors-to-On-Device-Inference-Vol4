@@ -1,0 +1,46 @@
+<svg viewBox="0 0 960 430" xmlns="http://www.w3.org/2000/svg" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="p4" markerWidth="12" markerHeight="12" refX="8" refY="4" orient="auto"><path d="M0,0 L9,4 L0,8 Z" fill="#6b5d4f"/></marker>
+  </defs>
+  <rect width="960" height="430" fill="#fbfaf7"/>
+  <text x="40" y="40" font-size="22" font-weight="bold" fill="#2b2620">Figure 2. The AgriEdge sensor-fusion pipeline</text>
+  <text x="40" y="63" font-size="14" fill="#5c5147">On-device plant-disease detection fusing thermal and visual signals with environmental context.</text>
+
+  <!-- sensing column -->
+  <g font-size="12.5" fill="#3a322a">
+    <rect x="50" y="100" width="180" height="50" rx="6" fill="#fff" stroke="#cdbbac"/><text x="64" y="122">Thermographic camera</text><text x="64" y="140" font-size="11" fill="#5c5147">leaf temperature, VPD</text>
+    <rect x="50" y="166" width="180" height="50" rx="6" fill="#fff" stroke="#cdbbac"/><text x="64" y="188">USB RGB camera</text><text x="64" y="206" font-size="11" fill="#5c5147">leaf imagery</text>
+    <rect x="50" y="232" width="180" height="50" rx="6" fill="#fff" stroke="#cdbbac"/><text x="64" y="254">AHT10 sensor</text><text x="64" y="272" font-size="11" fill="#5c5147">temperature, humidity</text>
+  </g>
+
+  <!-- fusion -->
+  <rect x="290" y="150" width="150" height="82" rx="8" fill="#efe7da" stroke="#8a7a66" stroke-width="1.4"/>
+  <text x="365" y="184" font-size="13.5" font-weight="bold" fill="#8a5a2b" text-anchor="middle">Sensor fusion</text>
+  <text x="365" y="204" font-size="11" fill="#5c5147" text-anchor="middle">thermal + RGB +</text>
+  <text x="365" y="219" font-size="11" fill="#5c5147" text-anchor="middle">environment</text>
+
+  <!-- model -->
+  <rect x="500" y="150" width="170" height="82" rx="8" fill="#fff" stroke="#cdbbac" stroke-width="1.4"/>
+  <text x="585" y="180" font-size="13.5" font-weight="bold" fill="#2b2620" text-anchor="middle">MobileNet CNN</text>
+  <text x="585" y="200" font-size="11" fill="#5c5147" text-anchor="middle">38 disease classes</text>
+  <text x="585" y="216" font-size="11" fill="#5c5147" text-anchor="middle">TensorFlow / Keras</text>
+
+  <!-- runtime -->
+  <rect x="730" y="150" width="170" height="82" rx="8" fill="#fff" stroke="#cdbbac" stroke-width="1.4"/>
+  <text x="815" y="180" font-size="13.5" font-weight="bold" fill="#2b2620" text-anchor="middle">Jetson Nano</text>
+  <text x="815" y="200" font-size="11" fill="#5c5147" text-anchor="middle">on-device inference</text>
+  <text x="815" y="216" font-size="11" fill="#5c5147" text-anchor="middle">OpenCV frame capture</text>
+
+  <!-- arrows -->
+  <line x1="232" y1="191" x2="288" y2="191" stroke="#6b5d4f" stroke-width="2.2" marker-end="url(#p4)"/>
+  <line x1="442" y1="191" x2="498" y2="191" stroke="#6b5d4f" stroke-width="2.2" marker-end="url(#p4)"/>
+  <line x1="672" y1="191" x2="728" y2="191" stroke="#6b5d4f" stroke-width="2.2" marker-end="url(#p4)"/>
+
+  <!-- outputs -->
+  <rect x="500" y="280" width="400" height="64" rx="8" fill="#2b2620"/>
+  <text x="700" y="308" font-size="13.5" font-weight="bold" fill="#e8c9a0" text-anchor="middle">Outputs: disease class + VPD-based irrigation insight</text>
+  <text x="700" y="328" font-size="11.5" fill="#f1eee7" text-anchor="middle">real-time, on-device, no cloud round-trip</text>
+  <line x1="815" y1="232" x2="780" y2="278" stroke="#6b5d4f" stroke-width="2.2" marker-end="url(#p4)"/>
+
+  <text x="480" y="392" font-size="12.5" fill="#8a5a2b" text-anchor="middle" font-style="italic">Richer fused sensing reduces the burden on the model and keeps inference local, cutting latency and bandwidth.</text>
+</svg>

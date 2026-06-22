@@ -1,0 +1,46 @@
+<svg viewBox="0 0 960 560" xmlns="http://www.w3.org/2000/svg" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="e4" markerWidth="12" markerHeight="12" refX="8" refY="4" orient="auto"><path d="M0,0 L9,4 L0,8 Z" fill="#6b5d4f"/></marker>
+  </defs>
+  <rect width="960" height="560" fill="#fbfaf7"/>
+  <text x="40" y="40" font-size="22" font-weight="bold" fill="#2b2620">Figure 1. The Embedded-to-Edge-AI Reference Architecture</text>
+  <text x="40" y="63" font-size="14" fill="#5c5147">Four layers in a co-design stack. The central engineering act is principled reduction between model and runtime.</text>
+
+  <!-- four layers -->
+  <g>
+    <rect x="120" y="92" width="720" height="78" rx="7" fill="#ffffff" stroke="#8a7a66" stroke-width="1.3"/>
+    <rect x="120" y="92" width="7" height="78" fill="#8a5a2b"/>
+    <text x="144" y="120" font-size="16" font-weight="bold" fill="#2b2620">1 &#183; Sensing</text>
+    <text x="144" y="144" font-size="12.5" fill="#5c5147">Clean, time-aligned, fused signal: I2C sensors, thermal + RGB cameras, MQTT fabric</text>
+    <text x="700" y="135" font-size="11.5" fill="#8a5a2b" font-style="italic">richer sensing can</text>
+    <text x="700" y="151" font-size="11.5" fill="#8a5a2b" font-style="italic">beat a bigger model</text>
+
+    <rect x="120" y="184" width="720" height="78" rx="7" fill="#ffffff" stroke="#8a7a66" stroke-width="1.3"/>
+    <rect x="120" y="184" width="7" height="78" fill="#8a5a2b"/>
+    <text x="144" y="212" font-size="16" font-weight="bold" fill="#2b2620">2 &#183; Model</text>
+    <text x="144" y="236" font-size="12.5" fill="#5c5147">Compact CNN (MobileNet-class) mapping signal to decision</text>
+
+    <!-- reduction band (central act) -->
+    <rect x="120" y="276" width="720" height="56" rx="7" fill="#f3ece1" stroke="#8a5a2b" stroke-width="1.8"/>
+    <text x="144" y="300" font-size="14" font-weight="bold" fill="#8a5a2b">PRINCIPLED REDUCTION</text>
+    <text x="144" y="320" font-size="12.5" fill="#5c5147">Quantization, pruning, distillation: fit the model to the budget without losing accuracy or explainability</text>
+
+    <rect x="120" y="346" width="720" height="78" rx="7" fill="#ffffff" stroke="#8a7a66" stroke-width="1.3"/>
+    <rect x="120" y="346" width="7" height="78" fill="#8a5a2b"/>
+    <text x="144" y="374" font-size="16" font-weight="bold" fill="#2b2620">3 &#183; Runtime and hardware</text>
+    <text x="144" y="398" font-size="12.5" fill="#5c5147">MCU / Raspberry Pi / Jetson Nano under real-time limits; TensorFlow, Keras, OpenCV</text>
+
+    <rect x="120" y="438" width="720" height="78" rx="7" fill="#ffffff" stroke="#8a7a66" stroke-width="1.3"/>
+    <rect x="120" y="438" width="7" height="78" fill="#8a5a2b"/>
+    <text x="144" y="466" font-size="16" font-weight="bold" fill="#2b2620">4 &#183; Software engineering</text>
+    <text x="144" y="490" font-size="12.5" fill="#5c5147">Object-oriented, modular, testable code so layers evolve independently (ECE 590)</text>
+  </g>
+
+  <!-- arrows -->
+  <line x1="480" y1="170" x2="480" y2="183" stroke="#6b5d4f" stroke-width="2" marker-end="url(#e4)"/>
+  <line x1="480" y1="262" x2="480" y2="275" stroke="#6b5d4f" stroke-width="2" marker-end="url(#e4)"/>
+  <line x1="480" y1="332" x2="480" y2="345" stroke="#6b5d4f" stroke-width="2" marker-end="url(#e4)"/>
+  <line x1="480" y1="424" x2="480" y2="437" stroke="#6b5d4f" stroke-width="2" marker-end="url(#e4)"/>
+
+  <text x="480" y="540" font-size="12.5" fill="#8a5a2b" text-anchor="middle" font-style="italic">Each layer constrains the one below; optimizing any layer in isolation produces a system that fails in integration.</text>
+</svg>

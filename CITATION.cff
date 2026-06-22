@@ -1,0 +1,38 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it using the metadata below."
+title: "From Sensors to On-Device Inference: An Embedded-to-Edge-AI Reference Architecture"
+abstract: >-
+  Edge AI is a four-layer co-design problem (sensing, model, runtime, software)
+  whose central act is principled reduction: shrinking a model while preserving
+  accuracy and explainability. This monograph contributes a reference
+  architecture grounded in two built systems, AgriEdge (plant-disease
+  classification on a Jetson Nano, MobileNet-based CNN reaching about 94.9
+  percent validation accuracy across 38 classes) and SensoryPi (Raspberry Pi
+  cyber-physical security). Volume 4 of the Engineering-to-Research monograph
+  series.
+type: report
+authors:
+  - family-names: "Palayil"
+    given-names: "Alan Biju"
+    orcid: "https://orcid.org/0009-0004-8302-5090"
+    affiliation: "Independent Researcher; Doctoral Researcher, University of the Cumberlands"
+version: "1.0"
+date-released: "2026-06-17"
+license: "CC-BY-4.0"
+repository-code: "https://github.com/AlanP13/Embedded-to-Edge-AI-Reference-Architecture-Vol4"
+keywords:
+  - edge AI
+  - on-device inference
+  - TinyML
+  - embedded systems
+  - cyber-physical systems
+  - sensor fusion
+  - model compression
+  - convolutional neural networks
+  - explainable AI
+  - Jetson Nano
+  - Raspberry Pi
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.20784402"
+    description: "Zenodo DOI for version 1.0"
