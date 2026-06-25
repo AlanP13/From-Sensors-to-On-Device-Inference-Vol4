@@ -1,0 +1,49 @@
+00005000 Starting Address
+Assembler used: EASy68K Editor/Assembler v5.12.29
+Created On: 2/3/2022 4:34:16 PM
+
+00000000                             1  *-----------------------------------------------------------
+00000000                             2  * Title      :
+00000000                             3  * Written by : Alan Palayil
+00000000                             4  * Date       :
+00000000                             5  * Description:
+00000000                             6  *-----------------------------------------------------------
+00005000                             7      ORG    $5000
+00005000                             8  START: 
+00005000  4BF9 00004000              9      LEA STR1, A5
+00005006  4DF9 00004014             10      LEA END1, A6
+0000500C  1E3C 00F3                 11      MOVE.B #243,D7
+00005010  4E4E                      12      TRAP #14 ; TRAP #14 ready prompt
+00005012  3E3C 00F1                 13      MOVE #241,D7
+00005016  4E4E                      14      TRAP #14 ; TRAP #14 input collections
+00005018  3E3C 00E2                 15      MOVE #226,D7
+0000501C  4E4E                      16      TRAP #14 ; TRAP #14 store in D0 after conversion
+0000501E  6000 F4E0                 17      BRA INSERT  
+00004500                            18     ORG $4500
+00004500  B050                      19  INSERT: CMP.W (A0),D0 ; compare A0 and D0
+00004502  6400 000C                 20      BCC LABEL1 ; If table value is less than inset value, branch to LBL1
+00004506  3110                      21      MOVE.W (A0),-(A0) ; increment the value
+00004508  5848                      22      ADDQ #4,A0
+0000450A  B3C8                      23      CMPA.L A0,A1 ; Compare the memory address
+0000450C  6400 0AF2                 24      BCC START ; if its in the table Loop
+00004510  3100                      25  LABEL1: MOVE.W D0,-(A0) ; insert the value into A0
+00004512  1E3C 00E4                 26      MOVE.B #228,D7
+00004516  4E4E                      27      TRAP #14 ; Trap #14 : Return to TUTOR
+00004518  FFFF FFFF                 28     SIMHALT ; halt simulator
+00004000                            29     ORG $4000
+00004000= 45 6E 74 65 72 20 ...     30  STR1 DC.B 'Enter 4 Hex Digits: '
+00004014= 00                        31  END1 DC.B 0
+00004015                            32      END    START        ; last line of source
+
+No errors detected
+No warnings generated
+
+
+SYMBOL TABLE INFORMATION
+Symbol-name         Value
+-------------------------
+END1                4014
+INSERT              4500
+LABEL1              4510
+START               5000
+STR1                4000
